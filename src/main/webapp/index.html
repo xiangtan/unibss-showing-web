@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>sublime text test</title>
+	
+	<script type="text/javascript">
+		function checksubmit()
+		{
+			var start = document.getElementsByName("preAccept.start")[0].value;
+			var end = document.getElementsByName("preAccept.end")[0].value;
+			if(!dateCompare(start,end))
+			{
+				alert("开始时间必须小于结束时间");
+				return false;
+			}
+		}
+		function dateCompare(startdate,enddate)   
+		{   
+			var arr=startdate.split("-");    
+			var starttime=new Date(arr[0],arr[1],arr[2]);    
+			var starttimes=starttime.getTime();   
+			  
+			var arrs=enddate.split("-");    
+			var lktime=new Date(arrs[0],arrs[1],arrs[2]);    
+			var lktimes=lktime.getTime();   
+			  
+			if(starttimes> lktimes)    
+			{   
+			return false;   
+			}   
+			else  
+			return true;   
+			  
+		} 
+	</script>
+</head>
+<body>
+	<form name="searchform" id="searchform" method="post" onsubmit="return checksubmit()">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0"
+				align="center" id="search">
+			<tr>
+				<td>
+				 start
+				</td>
+				<td>
+					<input type="input" name="preAccept.start" />
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+				 end
+				</td>
+				<td>
+					<input type="input" name="preAccept.end" />
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+				 submit
+				</td>
+				<td>
+				<input type="submit" name="submit" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
